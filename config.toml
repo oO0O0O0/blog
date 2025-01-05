@@ -1,0 +1,125 @@
+
+title = 'My New Hugo Site'
+theme = 'hugo-theme-relearn'
+
+
+    
+defaultContentLanguage = "en" # اللغة الافتراضية
+[languages]
+[languages.en]
+  languageName = "English"
+  weight = 2
+
+[languages.ar]
+  languageName = "العربية"
+  weight = 1
+  direction = "rtl" # لضبط الاتجاه إلى اليمين لليسار
+
+# settings specific to this theme's features; choose to your likings and
+# consult this documentation for explaination
+[params]
+  editURL = "https://github.com/McShelby/hugo-theme-relearn/edit/main/exampleSite/content/"
+  description = "Documentation for Hugo Relearn Theme"
+  author = "Sören Weber"
+  showVisitedLinks = true
+  collapsibleMenu = true
+  disableBreadcrumb = false
+  disableInlineCopyToClipBoard = true
+  disableNextPrev = false
+  disableLandingPageButton = true
+  breadcrumbSeparator = ">"
+  titleSeparator = "::"
+  #themeVariant = [ "auto", "relearn-bright", "relearn-light", "relearn-dark", "zen-light", "zen-dark", "neon", "learn", "blue", "green", "red" ]
+  themeVariant = "zen-dark"
+  themeVariantAuto = [ "relearn-light", "relearn-dark" ]
+  disableSeoHiddenPages = true
+  # this is to index search for your native language in other languages, too (eg.
+  # pir in this showcase)
+  additionalContentLanguage = [ "en" ]
+  # this is for the stylesheet generator to allow for interactivity in Mermaid
+  # graphs; you usually will not need it and you should remove this for
+  # security reasons
+  mermaidInitialize = "{ \"securityLevel\": \"loose\" }"
+  mermaidZoom = true
+  [params.siteparam.test]
+    text = "A **nested** parameter <b>with</b> formatting"
+  [params.imageEffects]
+    bg-white = true # extension, not supported by the theme
+    border = true
+
+
+[module]
+  [[module.mounts]]
+    source = 'archetypes'
+    target = 'archetypes'
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+
+  # Language dependend settings:
+  # Use case https://gohugo.io/content-management/multilingual/#translation-by-filename
+  [[module.mounts]]
+    source = 'content'
+    target = 'content'
+  # Use case https://gohugo.io/content-management/multilingual/#translation-by-content-directory
+  #[[module.mounts]]
+  #  lang = 'en'
+  #  source = 'content/en'
+  #  target = 'content'
+  #[[module.mounts]]
+  #  lang = 'pir'
+  #  source = 'content/pir'
+  #  target = 'content'
+
+  [[module.mounts]]
+    source = 'data'
+    target = 'data'
+  [[module.mounts]]
+    source = 'i18n'
+    target = 'i18n'
+  [[module.mounts]]
+    source = '../images'
+    target = 'static/images'
+  [[module.mounts]]
+    source = 'static/images'
+    target = 'static/images'
+  [[module.mounts]]
+    source = 'layouts'
+    target = 'layouts'
+  [[module.mounts]]
+    source = 'static'
+    target = 'static'
+
+
+    [markup]
+  [markup.highlight]
+    # line numbers in a table layout will shift if code is wrapping, so better
+    # not use it; visually both layouts have the same look and behavior
+    lineNumbersInTable = false
+
+    # if `guessSyntax = true`, there will be no unstyled code even if no language
+    # was given BUT Mermaid and Math codefences will not work anymore! So this is a
+    # mandatory setting for your site if you want to use Mermaid or Math codefences
+    guessSyntax = false
+
+    # the shipped variants come with their own modified chroma syntax highlightning
+    # style which is imported in theme-relearn-light.css, theme-relearn-dark.css, etc.;
+    # if you want to use a predefined style instead:
+    # - remove `noClasses` or set `noClasses = true`
+    # - set `style` to a predefined style name
+    noClasses = false
+    # style = "tango"
+
+  [markup.goldmark.renderer]
+    # activated for this showcase to use HTML and JavaScript; decide on your own needs;
+    # if in doubt, remove this line
+    unsafe = true
+
+# allows `hugo server` to display this showcase in IE11; this is used for testing, as we
+# are still supporting IE11 - although with degraded experience; if you don't care about
+# `hugo server` or browsers of ancient times, fell free to remove this whole block
+[server]
+  [[server.headers]]
+    for = "**.html"
+    [server.headers.values]
+       X-UA-Compatible = "IE=edge"
