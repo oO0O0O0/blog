@@ -18,9 +18,10 @@ defaultContentLanguage = "en" # اللغة الافتراضية
 # settings specific to this theme's features; choose to your likings and
 # consult this documentation for explaination
 [params]
+  linkTitle = 'alwst'
   editURL = "https://github.com/McShelby/hugo-theme-relearn/edit/main/exampleSite/content/"
   description = "Documentation for Hugo Relearn Theme"
-  author = "Sören Weber"
+  author = "alwst"
   showVisitedLinks = true
   collapsibleMenu = true
   disableBreadcrumb = false
