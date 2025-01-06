@@ -34,4 +34,8 @@ hugo new --kind chapter first-chapter/_index.md
 hugo new first-chapter/first-page/_index.md
 hugo new first-chapter/second-page/index.md
 hugo new first-chapter/third-page.md
+
+# in use
+
+hugo new DRUPAL/Development/xxx.ar.md
 ```
